@@ -87,6 +87,20 @@
     </section>
   </main>
 
+
+
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "68329ded87364a3c9b1f616c564bbc1b"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
+
+
+
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -102,6 +116,142 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+
+    TrackJS.track('Testing TrackJS!');
+
+
+    class ProgrammerIsStupidError extends Error {
+      constructor(label) {
+        super(label);
+        this.name = "ProgrammerIsStupidError";
+      }
+    }
+
+    if(window.onerror){
+      console.error("Caught window.onerror");
+      throw new ProgrammerIsStupidError(window.onerror);
+    } else console.log("Nope, no error caught");
+
+
+    var allButtons = document.querySelectorAll("button");
+
+    //Log
+    allButtons[1].addEventListener("click", e => {
+      console.log('LOG');
+
+    });
+
+    //Error
+    allButtons[2].addEventListener("click", e => {
+      console.error('OH GOD THERE\'S BEEN AN ERROR');
+      
+
+    });
+
+    //Count
+    allButtons[3].addEventListener("click", e => {
+      console.count();
+
+    });
+
+    //Warn
+    allButtons[4].addEventListener("click", e => {
+      console.warn('AAAAAAAAAAAAAAAA');
+
+    });
+
+    //Assert
+    allButtons[5].addEventListener("click", e => {
+      x = 420;
+      y = 666;
+      reason = 'x is supposed to be y';
+      console.assert(x == y, {x, y, reason});
+
+    });
+
+    //Clear
+    allButtons[6].addEventListener("click", e => {
+      console.clear();
+
+    });
+
+    //Dir
+    allButtons[7].addEventListener("click", e => {
+      console.dir(document.body);
+
+    });
+
+    //Dirxml
+    allButtons[8].addEventListener("click", e => {
+      console.dirxml(document);
+
+    });
+
+
+    //Group
+    allButtons[9].addEventListener("click", e => {
+      console.group('Group started');
+
+    });
+
+    //Group end
+    allButtons[10].addEventListener("click", e => {
+      console.groupEnd('Group ended');
+
+    });
+
+    //Table
+    allButtons[11].addEventListener("click", e => {
+      console.table([
+        {
+          entry: 'Elder Scrolls III',
+          title: 'Morrowind',
+        },
+        {
+          entry: 'Elder Scrolls IV',
+          title: 'Oblivion',
+        },
+        {
+          entry: 'Elder Scrolls V',
+          title: 'Skyrim',
+        }
+      ]);
+
+    });
+
+    //Time
+    allButtons[12].addEventListener("click", e => {
+      console.time();
+
+    });
+
+    //Time end
+    allButtons[13].addEventListener("click", e => {
+      console.timeEnd();
+
+    });
+
+    //Trace
+    allButtons[14].addEventListener("click", e => {
+      console.trace();
+
+    });
+
+    try{
+       hfdsjhdskjfhdksjf;;;;sdfdsfds;fdsf;dsf;dsf;dsf;sdf;dsf;dsf;ds;fdsf;dsf;ds;f;ds;f;ds
+    } catch(err){
+      console.error(err);
+      throw new Error("The author just did something dumb");
+
+    } finally {
+      console.log('Wow gee hope I didn\'t just write broken code');
+
+    }
+
+    
+    
+
   </script>
 </body>
 
