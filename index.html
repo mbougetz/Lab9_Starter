@@ -128,10 +128,11 @@
       }
     }
 
-    if(window.onerror){
-      console.error("Caught window.onerror");
-      throw new ProgrammerIsStupidError(window.onerror);
-    } else console.log("Nope, no error caught");
+    window.onerror = function(msg, src, line) {
+      //console.log('Error message: '+msg+'\nURL: '+src+'\nLine Number: '+line);
+      console.log('Caught error: ' + msg);
+      return true;
+    }
 
 
     var allButtons = document.querySelectorAll("button");
@@ -145,6 +146,7 @@
     //Error
     allButtons[2].addEventListener("click", e => {
       console.error('OH GOD THERE\'S BEEN AN ERROR');
+      throw new ProgrammerIsStupidError("Wow something screwed up somewhere");
       
 
     });
@@ -235,6 +237,14 @@
     //Trace
     allButtons[14].addEventListener("click", e => {
       console.trace();
+
+    });
+
+
+    //Global error
+    allButtons[15].addEventListener("click", e => {
+
+      asdsasasadds
 
     });
 
